@@ -8,8 +8,8 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/users', userRoutes)
-app.use('/food', foodRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/food', foodRoutes)
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`)

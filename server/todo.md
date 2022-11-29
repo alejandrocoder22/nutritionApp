@@ -8,6 +8,7 @@
  - [ ] Gráfico mostrando el reparto de macronutrientes del día
  - [ ] Añadir alimentos privados
  - [ ] CRUD diario dividido en desayuno / Comida / Cena / Otros por día
+ - [ ] 
 
 
 
