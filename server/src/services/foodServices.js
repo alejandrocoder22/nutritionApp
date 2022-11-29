@@ -1,15 +1,8 @@
 const pool = require('../database')
 
-const getAllPrivateFood = async (userId) => {
-  try {
-    return await pool.query('SELECT * FROM food WHERE user_id = $1', [userId])
-  } catch (error) {
-    return error
-  }
-}
 const getAllFood = async () => {
   try {
-    return await pool.query('SELECT * FROM food WHERE is_private = false')
+    return await pool.query('SELECT * FROM food')
   } catch (error) {
     return error
   }
@@ -21,19 +14,28 @@ const createPublicFood = async (proteins, carbs, fats, foodName) => {
     return error
   }
 }
-const createPrivateFood = async (foodName, proteins, carbs, fats, userId) => {
+const createFoodDairy = async (grams, eatTime, userId, createdAt, foodId) => {
   try {
-    return pool.query('INSERT INTO food (food_name, proteins, carbs, fats, user_id, is_private) VALUES ($1, $2, $3, $4, $5, $6)', [foodName, proteins, carbs, fats, userId, true])
+    return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [grams, eatTime, userId, createdAt, foodId])
   } catch (error) {
     return error
   }
 }
-const createFoodDairy = async (foodName, grams, eatTime, userId, createdAt) => {
+const getDairyFoodByDate = async (date, userId) => {
   try {
-    return pool.query('INSERT INTO users_food_dairy (food_name, grams, eat_time, user_id, date_added) VALUES ($1, $2, $3, $4, $5)', [foodName, grams, eatTime, userId, createdAt])
+    return await pool.query(`
+    SELECT DISTINCT food.food_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified FROM users_food_dairy 
+    INNER JOIN food
+    ON users_food_dairy.food_id = food.food_id  
+    WHERE date_added = '${date}' 
+    AND user_id = $1
+
+
+    `, [userId]
+    )
   } catch (error) {
     return error
   }
 }
 
-module.exports = { createPublicFood, createFoodDairy, createPrivateFood, getAllPrivateFood, getAllFood }
+module.exports = { getDairyFoodByDate, createPublicFood, createFoodDairy, getAllFood }
