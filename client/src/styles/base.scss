@@ -1,0 +1,28 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 103.125rem;
+  padding: 3rem;
+  margin: 0 auto;
+}
+
+svg,
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.radius {
+  border-radius: 5px;
+}
+.pointer {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}

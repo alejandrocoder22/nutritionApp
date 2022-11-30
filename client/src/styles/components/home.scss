@@ -1,0 +1,39 @@
+.home {
+  background: url(../images/fondo.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  &__intro-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__button {
+    padding: 1.5rem 1rem;
+
+    font-weight: bold;
+    background-color: #fbc26e;
+  }
+}
+
+.intro-text {
+  position: relative;
+  &__h1 {
+    font-size: 6.25rem;
+    text-align: center;
+  }
+  &__line {
+  }
+  &__red-bg {
+    position: relative;
+  }
+  &__red-bg::after {
+    content: "";
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: red;
+    opacity: 0.1;
+  }
+}
