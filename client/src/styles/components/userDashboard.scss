@@ -1,0 +1,39 @@
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin: 2rem auto;
+  &__section-add {
+    padding: 0 1rem;
+  }
+  &__period {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  &__th > &__td {
+    font-weight: bold;
+    padding: 0 1rem;
+  }
+  &__td {
+    padding: 0 1rem;
+    text-align: center;
+  }
+  &__section-start {
+    border-bottom: 3px solid black;
+    margin: 0 1rem;
+  }
+}
+.graph {
+  height: 200px;
+  background-color: grey;
+}
+
+.left {
+  text-align: left;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
