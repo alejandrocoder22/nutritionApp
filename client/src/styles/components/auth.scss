@@ -1,0 +1,22 @@
+.auth {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__label {
+    text-align: left;
+  }
+  &__input {
+    border: 2px solid grey;
+    border-radius: 2.5px;
+  }
+  &__button {
+    background-color: $button_color;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+  }
+}
