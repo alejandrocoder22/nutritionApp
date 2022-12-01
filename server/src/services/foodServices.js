@@ -2,7 +2,7 @@ const pool = require('../database')
 
 const getAllFood = async () => {
   try {
-    return await pool.query('SELECT * FROM food')
+    return await pool.query('SELECT * FROM food ORDER BY food_name')
   } catch (error) {
     return error
   }
