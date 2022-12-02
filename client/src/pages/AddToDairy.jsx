@@ -2,6 +2,7 @@ import Nav from '../components/Nav'
 import { useEffect, useState } from 'react'
 import { fetchAllFood } from '../services/foodServices'
 import PieChartDiary from '../components/PieChartDiary'
+import { useSearchParams } from 'react-router-dom'
 
 const AddToDairy = () => {
   const pickFood = (e) => {
@@ -11,11 +12,30 @@ const AddToDairy = () => {
   const [pickedFood, setPickedFood] = useState({})
   const [searchFood, setSearchFood] = useState(food)
 
+  const [getParams, setGetParams] = useSearchParams()
+
   useEffect(() => {
     fetchAllFood()
       .then(response => response.json())
       .then(foodList => setFood(foodList.data))
   }, [])
+
+  const onAddFood = (e) => {
+    e.preventDefault()
+    fetch('http://localhost:3001/api/food/dairy/1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        grams: 23,
+        eatTime: getParams.get('period'),
+        private_food_id: 1,
+        createdAt: getParams.get('date'),
+        foodId: pickedFood[0].food_id
+      })
+    })
+  }
 
   const onSearchFood = (e) => {
     setSearchFood(food.filter(singleFood => singleFood.food_name.includes(e.target.value)))
@@ -24,9 +44,9 @@ const AddToDairy = () => {
     <main className='add-to-dairy'>
       <Nav />
       <div className='add-to-dairy__container wrapper'>
-        <form className='add-to-dairy__form'>
+        <form onSubmit={onAddFood} className='add-to-dairy__form'>
           <input onChange={onSearchFood} className='add-to-dairy__input radius ' placeholder='Buscar...' />
-          <button className='add-to-dairy__button radius pointer'>Añadir a comida</button>
+          <button className='add-to-dairy__button radius pointer' type='submit'>Añadir a comida</button>
         </form>
         <div className='add-to-dairy__two-columns'>
           <div className='add-to-dairy__column-left'>

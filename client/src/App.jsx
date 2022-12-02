@@ -1,12 +1,12 @@
-import Nav from './components/Nav'
-import AddToDairy from './pages/AddToDairy'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import UserDashboard from './pages/UserDashboard'
+
+import { UserContextProvider } from './context/userContext'
+import MainRoutes from './router/MainRoutes'
 
 function App () {
   return (
-    <AddToDairy />
+    <UserContextProvider>
+      <MainRoutes />
+    </UserContextProvider>
   )
 }
 

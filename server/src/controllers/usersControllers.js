@@ -61,4 +61,13 @@ const deleteUser = (req, res) => {
   res.send('user Deleted')
 }
 
-module.exports = { createUser, loginUser, deleteUser, getAllUsers }
+const verifyToken = (req, res) => {
+  const { token } = req.headers
+  jwt.verify(token.split(' ')[1], process.env.JWT_PASSWORD, (err, decoded) => {
+    if (err) {
+      return res.status(400).send({ status: 'fail', message: err.message })
+    }
+    res.status(200).send({ status: 'sucess', data: decoded })
+  })
+}
+module.exports = { createUser, loginUser, deleteUser, getAllUsers, verifyToken }
