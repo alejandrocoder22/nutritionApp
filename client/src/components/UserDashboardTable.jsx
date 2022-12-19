@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const UserDashboardTable = () => {
+const UserDashboardTable = ({ date }) => {
   return (
     <table className='table'>
       <thead className='table__thead'>
@@ -28,8 +28,7 @@ const UserDashboardTable = () => {
           <td className='table__td'>x</td>
         </tr>
         <tr className='table__section-start'>
-
-          <td className='table__section-add'><Link to='/add-dairy?date="22/10/1994"&period=launch'>Añadir...</Link></td>
+          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=launch`}>Añadir...</Link></td>
         </tr>
         <tr className='table__tr'>
           <td className='table__td table__period left'>Comida</td>

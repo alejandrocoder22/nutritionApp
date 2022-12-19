@@ -2,17 +2,18 @@ import Nav from '../components/Nav'
 import { useEffect, useState } from 'react'
 import { fetchAllFood } from '../services/foodServices'
 import PieChartDiary from '../components/PieChartDiary'
-import { useSearchParams } from 'react-router-dom'
+import AddToDaityPopup from '../components/AddToDaityPopup'
 
 const AddToDairy = () => {
   const pickFood = (e) => {
-    setPickedFood(food.filter(singleFood => singleFood.food_id == e.target.id))
+    setPopup(true)
+    setFoodToAdd(food.find(singleFood => singleFood.food_id == e.target.id))
   }
   const [food, setFood] = useState([])
-  const [pickedFood, setPickedFood] = useState({})
+  const [pickedFood, setPickedFood] = useState([])
+  const [foodToAdd, setFoodToAdd] = useState({})
   const [searchFood, setSearchFood] = useState(food)
-
-  const [getParams, setGetParams] = useSearchParams()
+  const [popup, setPopup] = useState(false)
 
   useEffect(() => {
     fetchAllFood()
@@ -27,13 +28,7 @@ const AddToDairy = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        grams: 23,
-        eatTime: getParams.get('period'),
-        private_food_id: 1,
-        createdAt: getParams.get('date'),
-        foodId: pickedFood[0].food_id
-      })
+      body: JSON.stringify(pickedFood)
     })
   }
 
@@ -46,7 +41,7 @@ const AddToDairy = () => {
       <div className='add-to-dairy__container wrapper'>
         <form onSubmit={onAddFood} className='add-to-dairy__form'>
           <input onChange={onSearchFood} className='add-to-dairy__input radius ' placeholder='Buscar...' />
-          <button className='add-to-dairy__button radius pointer' type='submit'>Añadir a comida</button>
+          <button className='add-to-dairy__button radius pointer'>Añadir a comida</button>
         </form>
         <div className='add-to-dairy__two-columns'>
           <div className='add-to-dairy__column-left'>
@@ -68,17 +63,18 @@ const AddToDairy = () => {
                 <th className='add-to-dairy__th'>Hidratos</th>
               </thead>
               <tbody>
-                <td className='add-to-dairy__td'>{pickedFood[0]?.proteins}</td>
-                <td className='add-to-dairy__td'>{pickedFood[0]?.fats}</td>
-                <td className='add-to-dairy__td'>{pickedFood[0]?.carbs}</td>
+                <td className='add-to-dairy__td'>{foodToAdd?.proteins}</td>
+                <td className='add-to-dairy__td'>{foodToAdd?.fats}</td>
+                <td className='add-to-dairy__td'>{foodToAdd?.carbs}</td>
               </tbody>
             </table>
             <div className='add-to-dairy__graph-container'>
-              <PieChartDiary carbs={pickedFood[0]?.carbs} proteins={pickedFood[0]?.proteins} fats={pickedFood[0]?.fats} />
+              <PieChartDiary carbs={foodToAdd?.carbs} proteins={foodToAdd?.proteins} fats={foodToAdd?.fats} />
             </div>
           </div>
         </div>
       </div>
+      {popup && <AddToDaityPopup foodToAdd={foodToAdd} setPickedFood={setPickedFood} />}
     </main>
   )
 }

@@ -1,7 +1,5 @@
-import { useState } from 'react'
 
-const UserDashboardDate = () => {
-  const [date, setDate] = useState('')
+const UserDashboardDate = ({ setDate, date }) => {
   const changeDate = (e) => {
     setDate(e.target.value)
   }
@@ -9,7 +7,6 @@ const UserDashboardDate = () => {
     <div className='date'>
       <input onChange={changeDate} type='date' />
       <p>Día seleccionado: {date}</p>
-
     </div>
   )
 }

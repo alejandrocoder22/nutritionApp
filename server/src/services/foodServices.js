@@ -14,9 +14,11 @@ const createPublicFood = async (proteins, carbs, fats, foodName) => {
     return error
   }
 }
-const createFoodDairy = async (grams, eatTime, userId, createdAt, foodId) => {
+const createFoodDairy = async (food, userId) => {
   try {
-    return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [grams, eatTime, userId, createdAt, foodId])
+    food.map(singleFood => {
+      return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [singleFood.quantity, singleFood.eat_at, userId, singleFood.date_added, singleFood.food_id])
+    })
   } catch (error) {
     return error
   }
