@@ -28,7 +28,7 @@ const AddToDairy = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(pickedFood)
+      body: JSON.stringify(foodToAdd)
     })
   }
 

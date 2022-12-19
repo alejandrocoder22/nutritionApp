@@ -35,8 +35,8 @@ const createFoodDairy = async (req, res) => {
 }
 
 const getDairyFoodByDate = async (req, res) => {
-  const { userId } = req.params
-  const { date } = req.body
+  const { userId, date } = req.params
+  console.log(userId, date)
   try {
     const allFood = await foodServices.getDairyFoodByDate(date, userId)
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const UserDashboardTable = ({ date }) => {
+const UserDashboardTable = ({ date, foodDairy }) => {
   return (
     <table className='table'>
       <thead className='table__thead'>
@@ -18,30 +18,49 @@ const UserDashboardTable = ({ date }) => {
         <tr className='table__tr'>
           <td className='table__td  table__period left'>Desayuno</td>
         </tr>
-        <tr className='table__tr'>
-          <td className='table__td'>Huevos revueltos</td>
-          <td className='table__td'>100</td>
-          <td className='table__td'>500</td>
-          <td className='table__td'>12</td>
-          <td className='table__td'>0</td>
-          <td className='table__td'>5</td>
-          <td className='table__td'>x</td>
-        </tr>
+        {
+            foodDairy?.map(food => {
+              if (food.eat_time === 'breakfast') {
+                return (
+                  <tr className='table__tr' key={food.food_id}>
+                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td'>{food.grams}</td>
+                    <td className='table__td'>kcal</td>
+                    <td className='table__td'>{food.carbs}</td>
+                    <td className='table__td'>{food.fats}</td>
+                    <td className='table__td'>{food.proteins}</td>
+                    <td className='table__td'>x</td>
+                  </tr>
+                )
+              }
+            }
+            )
+          }
+
         <tr className='table__section-start'>
           <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=launch`}>Añadir...</Link></td>
         </tr>
         <tr className='table__tr'>
           <td className='table__td table__period left'>Comida</td>
         </tr>
-        <tr className='table__tr'>
-          <td className='table__td '>Huevos revueltos</td>
-          <td className='table__td'>100</td>
-          <td className='table__td'>500</td>
-          <td className='table__td'>12</td>
-          <td className='table__td'>0</td>
-          <td className='table__td'>5</td>
-          <td className='table__td'>x</td>
-        </tr>
+        {
+            foodDairy?.map(food => {
+              if (food.eat_time === 'launch') {
+                return (
+                  <tr className='table__tr' key={food.food_id}>
+                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td'>{food.grams}</td>
+                    <td className='table__td'>kcal</td>
+                    <td className='table__td'>{food.carbs}</td>
+                    <td className='table__td'>{food.fats}</td>
+                    <td className='table__td'>{food.proteins}</td>
+                    <td className='table__td'>x</td>
+                  </tr>
+                )
+              }
+            }
+            )
+          }
         <tr className='table__section-start'>
           <td className='table__section-add'>Añadir...</td>
         </tr>
@@ -49,15 +68,24 @@ const UserDashboardTable = ({ date }) => {
         <tr className='table__tr'>
           <td className='table__td table__period left'>Cena</td>
         </tr>
-        <tr className='table__tr'>
-          <td className='table__td'>Huevos revueltos</td>
-          <td className='table__td'>100</td>
-          <td className='table__td'>500</td>
-          <td className='table__td'>12</td>
-          <td className='table__td'>0</td>
-          <td className='table__td'>5</td>
-          <td className='table__td'>x</td>
-        </tr>
+        {
+            foodDairy?.map(food => {
+              if (food.eat_time === 'dinner') {
+                return (
+                  <tr className='table__tr' key={food.food_id}>
+                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td'>{food.grams}</td>
+                    <td className='table__td'>kcal</td>
+                    <td className='table__td'>{food.carbs}</td>
+                    <td className='table__td'>{food.fats}</td>
+                    <td className='table__td'>{food.proteins}</td>
+                    <td className='table__td'>x</td>
+                  </tr>
+                )
+              }
+            }
+            )
+          }
         <tr className='table__section-start'>
           <td className='table__section-add'>Añadir...</td>
         </tr>
@@ -65,15 +93,24 @@ const UserDashboardTable = ({ date }) => {
         <tr className='table__tr'>
           <td className='table__td table__period left'>Otros</td>
         </tr>
-        <tr className='table__tr'>
-          <td className='table__td'>Huevos revueltos</td>
-          <td className='table__td'>100</td>
-          <td className='table__td'>500</td>
-          <td className='table__td'>12</td>
-          <td className='table__td'>0</td>
-          <td className='table__td'>5</td>
-          <td className='table__td'>x</td>
-        </tr>
+        {
+            foodDairy?.map(food => {
+              if (food.eat_time === 'other') {
+                return (
+                  <tr className='table__tr' key={food.food_id}>
+                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td'>{food.grams}</td>
+                    <td className='table__td'>kcal</td>
+                    <td className='table__td'>{food.carbs}</td>
+                    <td className='table__td'>{food.fats}</td>
+                    <td className='table__td'>{food.proteins}</td>
+                    <td className='table__td'>x</td>
+                  </tr>
+                )
+              }
+            }
+            )
+          }
         <tr className=' table__section-start'>
           <td className='table__section-add'>Añadir...</td>
         </tr>
