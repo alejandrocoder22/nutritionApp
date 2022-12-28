@@ -11,9 +11,9 @@ const getAllFood = async (req, res) => {
 }
 
 const createPublicFood = (req, res) => {
-  const { proteins, carbs, fats, foodName } = req.body
+  const { proteins, carbs, fats, food_name, kcal } = req.body
   try {
-    foodServices.createPublicFood(proteins, carbs, fats, foodName).then(response => {
+    foodServices.createPublicFood(proteins, carbs, fats, food_name, kcal).then(response => {
       if (response.code) {
         return res.status(400).send({ status: 'error', message: errorMessage(response.code) })
       }
@@ -36,7 +36,6 @@ const createFoodDairy = async (req, res) => {
 
 const getDairyFoodByDate = async (req, res) => {
   const { userId, date } = req.params
-  console.log(userId, date)
   try {
     const allFood = await foodServices.getDairyFoodByDate(date, userId)
 

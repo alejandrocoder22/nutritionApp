@@ -18,6 +18,7 @@ CREATE TABLE food (
     proteins NUMERIC(4,2) NOT NULL,
     carbs NUMERIC(4,2) NOT NULL,
     fats NUMERIC(4,2) NOT NULL,
+    kcal NUMERIC(6,2) NOT NULL,
     is_verified BOOLEAN DEFAULT false,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()

@@ -25,7 +25,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
                   <tr className='table__tr' key={food.food_id}>
                     <td className='table__td'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
-                    <td className='table__td'>kcal</td>
+                    <td className='table__td'>{Number(food.kcal) * Number(food.grams / 100)}</td>
                     <td className='table__td'>{food.carbs}</td>
                     <td className='table__td'>{food.fats}</td>
                     <td className='table__td'>{food.proteins}</td>
@@ -38,7 +38,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
           }
 
         <tr className='table__section-start'>
-          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=launch`}>Añadir...</Link></td>
+          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=breakfast`}>Añadir...</Link></td>
         </tr>
         <tr className='table__tr'>
           <td className='table__td table__period left'>Comida</td>

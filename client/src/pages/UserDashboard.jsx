@@ -5,21 +5,20 @@ import UserDashboardDate from '../components/UserDashboardDate'
 import UserDashboardGraph from '../components/UserDashboardGraph'
 import UserDashboardTable from '../components/UserDashboardTable'
 
-const todayDate = () => {
-  const date = new Date()
-  const day = date.getDate()
-  const month = date.getMonth()
-  const year = date.getFullYear()
-
-  return `${year}-${month}-${day}`
-}
-
 const UserDashboard = () => {
-  const [date, setDate] = useState('')
+  const todayDate = () => {
+    const date = new Date()
+    const day = date.getDate()
+    const month = date.getMonth() + 1
+    const year = date.getFullYear()
+
+    return `${year}-${month}-${day}`
+  }
+  const [date, setDate] = useState(todayDate())
   const [foodDairy, setFoodDairy] = useState([])
 
   const getFoodDairyByDate = () => {
-    return fetch(`http://localhost:3001/api/food/dairy/1/${date || todayDate()}`)
+    return fetch(`http://localhost:3001/api/food/dairy/1/${date}`)
   }
 
   useEffect(() => {

@@ -10,7 +10,7 @@ const AddToDairy = () => {
     setFoodToAdd(food.find(singleFood => singleFood.food_id == e.target.id))
   }
   const [food, setFood] = useState([])
-  const [pickedFood, setPickedFood] = useState([])
+  const [pickedFood, setPickedFood] = useState({})
   const [foodToAdd, setFoodToAdd] = useState({})
   const [searchFood, setSearchFood] = useState(food)
   const [popup, setPopup] = useState(false)
@@ -21,27 +21,15 @@ const AddToDairy = () => {
       .then(foodList => setFood(foodList.data))
   }, [])
 
-  const onAddFood = (e) => {
-    e.preventDefault()
-    fetch('http://localhost:3001/api/food/dairy/1', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(foodToAdd)
-    })
-  }
-
   const onSearchFood = (e) => {
-    setSearchFood(food.filter(singleFood => singleFood.food_name.includes(e.target.value)))
+    setSearchFood(food.filter(singleFood => singleFood.food_name.toLowerCase().includes(e.target.value.toLowerCase())))
   }
   return (
     <main className='add-to-dairy'>
       <Nav />
       <div className='add-to-dairy__container wrapper'>
-        <form onSubmit={onAddFood} className='add-to-dairy__form'>
+        <form className='add-to-dairy__form'>
           <input onChange={onSearchFood} className='add-to-dairy__input radius ' placeholder='Buscar...' />
-          <button className='add-to-dairy__button radius pointer'>Añadir a comida</button>
         </form>
         <div className='add-to-dairy__two-columns'>
           <div className='add-to-dairy__column-left'>
@@ -74,7 +62,7 @@ const AddToDairy = () => {
           </div>
         </div>
       </div>
-      {popup && <AddToDaityPopup foodToAdd={foodToAdd} setPickedFood={setPickedFood} />}
+      {popup && <AddToDaityPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />}
     </main>
   )
 }

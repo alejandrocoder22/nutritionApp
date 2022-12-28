@@ -7,18 +7,16 @@ const getAllFood = async () => {
     return error
   }
 }
-const createPublicFood = async (proteins, carbs, fats, foodName) => {
+const createPublicFood = async (proteins, carbs, fats, foodName, kcal) => {
   try {
-    return await pool.query('INSERT INTO food (proteins, carbs, fats, food_name) VALUES($1, $2, $3, $4)', [proteins, carbs, fats, foodName])
+    return await pool.query('INSERT INTO food (proteins, carbs, fats, food_name, kcal) VALUES($1, $2, $3, $4, $5)', [proteins, carbs, fats, foodName, kcal])
   } catch (error) {
     return error
   }
 }
 const createFoodDairy = async (food, userId) => {
   try {
-    food.map(singleFood => {
-      return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [singleFood.quantity, singleFood.eat_at, userId, singleFood.date_added, singleFood.food_id])
-    })
+    return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [food.quantity, food.eat_at, userId, food.date_added, food.food_id])
   } catch (error) {
     return error
   }
@@ -26,7 +24,7 @@ const createFoodDairy = async (food, userId) => {
 const getDairyFoodByDate = async (date, userId) => {
   try {
     return await pool.query(`
-    SELECT DISTINCT food.food_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified FROM users_food_dairy 
+    SELECT DISTINCT food.food_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified, kcal FROM users_food_dairy 
     INNER JOIN food
     ON users_food_dairy.food_id = food.food_id  
     WHERE date_added = '${date}' 
