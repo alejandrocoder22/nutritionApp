@@ -1,4 +1,4 @@
-export const onLogin = (e, username, password) => {
+export const onLogin = (e, username, password, navigate) => {
   e.preventDefault()
   fetch('http://localhost:3001/api/users/login', {
     method: 'POST',
@@ -10,6 +10,7 @@ export const onLogin = (e, username, password) => {
     .then(userData => {
       if (userData.status === 'sucess') {
         window.localStorage.setItem('token', userData.token)
+        navigate('/dashboard')
       }
     })
 }
