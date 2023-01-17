@@ -5,7 +5,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
     <table className='table'>
       <thead className='table__thead'>
         <tr className='table__th'>
-          <td className='table__td left'>Periodo</td>
+          <td className='table__td left' />
           <td className='table__td'>Cantidad</td>
           <td className='table__td'>Kcal</td>
           <td className='table__td'>Carbohidratos (g)</td>
@@ -23,7 +23,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
               if (food.eat_time === 'breakfast') {
                 return (
                   <tr className='table__tr' key={food.food_id}>
-                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>{Number(food.kcal) * Number(food.grams / 100)}</td>
                     <td className='table__td'>{food.carbs}</td>
@@ -48,7 +48,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
               if (food.eat_time === 'launch') {
                 return (
                   <tr className='table__tr' key={food.food_id}>
-                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
                     <td className='table__td'>{food.carbs}</td>
@@ -62,7 +62,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             )
           }
         <tr className='table__section-start'>
-          <td className='table__section-add'>Añadir...</td>
+          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=launch`}>Añadir...</Link></td>
         </tr>
         <tr className='table__separate-bar' />
         <tr className='table__tr'>
@@ -73,7 +73,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
               if (food.eat_time === 'dinner') {
                 return (
                   <tr className='table__tr' key={food.food_id}>
-                    <td className='table__td'>{food.food_name}</td>
+                    <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
                     <td className='table__td'>{food.carbs}</td>
@@ -87,7 +87,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             )
           }
         <tr className='table__section-start'>
-          <td className='table__section-add'>Añadir...</td>
+          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=dinner`}>Añadir...</Link></td>
         </tr>
         <tr className='table__separate-bar' />
         <tr className='table__tr'>
@@ -97,8 +97,8 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             foodDairy?.map(food => {
               if (food.eat_time === 'other') {
                 return (
-                  <tr className='table__tr' key={food.food_id}>
-                    <td className='table__td'>{food.food_name}</td>
+                  <tr className='table__tr left' key={food.food_id}>
+                    <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
                     <td className='table__td'>{food.carbs}</td>
@@ -112,7 +112,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             )
           }
         <tr className=' table__section-start'>
-          <td className='table__section-add'>Añadir...</td>
+          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=other`}>Añadir...</Link></td>
         </tr>
         <tr className='table__separate-bar' />
       </tbody>

@@ -1,8 +1,9 @@
+import PieChartDashboard from './PieChartDashboard'
 
-const UserDashboardGraph = () => {
+const UserDashboardGraph = ({ foodDairy }) => {
   return (
     <div className='graph'>
-      <h1>User graph</h1>
+      <PieChartDashboard foodDairy={foodDairy} />
     </div>
   )
 }
