@@ -1,6 +1,8 @@
 .table {
   margin: 0 auto;
   margin: 2rem auto;
+  padding: 1rem 0;
+  box-shadow: 1px 1px 20px 2px rgb(247, 247, 247);
   &__section-add {
     padding: 0 1rem;
   }

@@ -1,6 +1,6 @@
 export const sumAllMacroData = (data, macro) => {
   const arrayOfMacroData = []
-  data.map(singleFood => arrayOfMacroData.push(Number(singleFood[macro])))
+  data?.map(singleFood => arrayOfMacroData.push(Number(singleFood[macro])))
 
   let currentValue = 0
 

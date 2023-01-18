@@ -4,7 +4,6 @@ import { sumAllMacroData } from '../utils/sumAllMacroData'
 
 const PieChartDashboard = ({ foodDairy }) => {
   const data = [
-
     { name: 'Proteinas', value: sumAllMacroData(foodDairy, 'proteins') },
     { name: 'Fats', value: sumAllMacroData(foodDairy, 'fats') },
     { name: 'Carbs', value: sumAllMacroData(foodDairy, 'carbs') }

@@ -6,15 +6,7 @@ import UserDashboardGraph from '../components/UserDashboardGraph'
 import UserDashboardTable from '../components/UserDashboardTable'
 
 const UserDashboard = () => {
-  const todayDate = () => {
-    const date = new Date()
-    const day = date.getDate()
-    const month = date.getMonth() + 1
-    const year = date.getFullYear()
-
-    return `${year}-${month}-${day}`
-  }
-  const [date, setDate] = useState(todayDate())
+  const [date, setDate] = useState(new Date())
   const [foodDairy, setFoodDairy] = useState([])
 
   const getFoodDairyByDate = () => {
