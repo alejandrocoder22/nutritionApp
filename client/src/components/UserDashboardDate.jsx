@@ -12,7 +12,6 @@ const UserDashboardDate = ({ setDate, date }) => {
         selected={date}
         onChange={changeDate}
         dateFormat='yyyy/MM/dd'
-
       />
       <input onChange={changeDate} type='date' />
     </div>

@@ -1,4 +1,5 @@
 const parseDate = (dateToParse) => {
+  console.log(dateToParse)
   const getMonthNumber = {
     Jan: '01',
     Feb: '02',
@@ -19,7 +20,6 @@ const parseDate = (dateToParse) => {
   const month = getMonthNumber[dateSplited[1]]
   const year = dateSplited[3]
   const day = dateSplited[2]
-
   return `${year}-${month}-${day}`
 }
 
