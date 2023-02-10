@@ -36,7 +36,7 @@ const loginUser = async (req, res) => {
 
   try {
     const userExist = await usersServices.loginUser(username, password)
-    if (userExist.rows[0].length < 1) {
+    if (userExist.rows.length === 0) {
       return res.status(400).send({ status: 'Error', message: 'User or Password is invalid' })
     }
     bcrypt.compare(password, userExist.rows[0].password, (err, result) => {

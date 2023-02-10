@@ -1,4 +1,5 @@
 const pool = require('../database')
+const { parseDate } = require('../helpers/parseDate')
 
 const getAllFood = async () => {
   try {
@@ -16,7 +17,7 @@ const createPublicFood = async (proteins, carbs, fats, foodName, kcal) => {
 }
 const createFoodDairy = async (food, userId) => {
   try {
-    return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [food.quantity, food.eat_at, userId, food.date_added, food.food_id])
+    return pool.query('INSERT INTO users_food_dairy (grams, eat_time, user_id, date_added, food_id) VALUES ($1, $2, $3, $4, $5)', [food.quantity, food.eat_at, userId, parseDate(food.date_added), food.food_id])
   } catch (error) {
     return error
   }

@@ -27,6 +27,7 @@ const createPublicFood = (req, res) => {
 const createFoodDairy = async (req, res) => {
   const food = req.body
   const { userId } = req.params
+
   const response = await foodServices.createFoodDairy(food, userId)
   if (response?.code) {
     return res.status(400).send({ status: 'error', message: errorMessage(response.code) })
