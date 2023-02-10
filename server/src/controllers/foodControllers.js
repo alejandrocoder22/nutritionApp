@@ -36,25 +36,35 @@ const createFoodDairy = async (req, res) => {
 }
 
 const getDairyFoodByDate = async (req, res) => {
-  const { userId, date } = req.params
+  const { date } = req.params
 
   try {
-    const allFood = await foodServices.getDairyFoodByDate(date, userId)
+    const allFood = await foodServices.getDairyFoodByDate(date, req.user.id)
 
     if (allFood.code) {
       return res.status(400).send({ status: 'fail', message: errorMessage(allFood.message) })
     }
 
-    if (req.user.id === Number(userId)) {
-      res.status(200).send({ status: 'sucess', data: allFood.rows })
-    }
+    res.status(200).send({ status: 'sucess', data: allFood.rows })
   } catch (error) {
     res.status(400).send({ status: 'fail', message: error.message })
+  }
+}
+
+const deleteFoodDiary = (req, res) => {
+  const { foodId } = req.params
+  console.log(req.user.id)
+  try {
+    foodServices.deleteFoodDairy(req.user.id, foodId)
+    res.status(200).send({ status: 'sucess', message: 'Food deleted' })
+  } catch (error) {
+    res.status(400).send({ status: 'fail', error })
   }
 }
 module.exports = {
   createPublicFood,
   getDairyFoodByDate,
   getAllFood,
-  createFoodDairy
+  createFoodDairy,
+  deleteFoodDiary
 }

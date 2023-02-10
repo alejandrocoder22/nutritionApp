@@ -1,5 +1,4 @@
 const parseDate = (dateToParse) => {
-  console.log(dateToParse)
   const getMonthNumber = {
     Jan: '01',
     Feb: '02',

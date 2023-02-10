@@ -25,7 +25,7 @@ const createFoodDairy = async (food, userId) => {
 const getDairyFoodByDate = async (date, userId) => {
   try {
     return await pool.query(`
-    SELECT DISTINCT food.food_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified, kcal FROM users_food_dairy 
+    SELECT DISTINCT food.food_id, dairy_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified, kcal FROM users_food_dairy 
     INNER JOIN food
     ON users_food_dairy.food_id = food.food_id  
     WHERE date_added = '${parseDate(date)}' 
@@ -39,4 +39,17 @@ const getDairyFoodByDate = async (date, userId) => {
   }
 }
 
-module.exports = { getDairyFoodByDate, createPublicFood, createFoodDairy, getAllFood }
+const deleteFoodDairy = async (userId, foodId) => {
+  console.log(userId, foodId)
+  try {
+    return await pool.query(`
+      DELETE FROM users_food_dairy
+      WHERE dairy_id = ${foodId}
+      AND user_id = ${userId}
+    `)
+  } catch (error) {
+    return error
+  }
+}
+
+module.exports = { getDairyFoodByDate, createPublicFood, createFoodDairy, getAllFood, deleteFoodDairy }

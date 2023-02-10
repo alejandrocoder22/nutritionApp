@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom'
 
 const UserDashboardTable = ({ date, foodDairy }) => {
+  const deleteFoodDairy = (foodId) => {
+    return fetch(`http://localhost:3001/api/food/dairy/${foodId}`, {
+      method: 'DELETE',
+      headers: {
+        token: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+  }
+
   return (
     <table className='table'>
       <thead className='table__thead'>
@@ -22,14 +31,14 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             foodDairy?.map(food => {
               if (food.eat_time === 'breakfast') {
                 return (
-                  <tr className='table__tr' key={food.food_id}>
+                  <tr className='table__tr' key={food.dairy_id}>
                     <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>{Number(food.kcal) * Number(food.grams / 100)}</td>
                     <td className='table__td'>{food.carbs}</td>
                     <td className='table__td'>{food.fats}</td>
                     <td className='table__td'>{food.proteins}</td>
-                    <td className='table__td'>x</td>
+                    <td className='table__td' onClick={() => deleteFoodDairy(food.dairy_id)}>x</td>
                   </tr>
                 )
               }
@@ -47,7 +56,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             foodDairy?.map(food => {
               if (food.eat_time === 'launch') {
                 return (
-                  <tr className='table__tr' key={food.food_id}>
+                  <tr className='table__tr' key={food.dairy_id}>
                     <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
@@ -72,7 +81,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             foodDairy?.map(food => {
               if (food.eat_time === 'dinner') {
                 return (
-                  <tr className='table__tr' key={food.food_id}>
+                  <tr className='table__tr' key={food.dairy_id}>
                     <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
@@ -97,7 +106,7 @@ const UserDashboardTable = ({ date, foodDairy }) => {
             foodDairy?.map(food => {
               if (food.eat_time === 'other') {
                 return (
-                  <tr className='table__tr left' key={food.food_id}>
+                  <tr className='table__tr left' key={food.dairy_id}>
                     <td className='table__td left'>{food.food_name}</td>
                     <td className='table__td'>{food.grams}</td>
                     <td className='table__td'>kcal</td>
