@@ -13,7 +13,7 @@ const UserDashboardDate = ({ setDate, date }) => {
         onChange={changeDate}
         dateFormat='yyyy/MM/dd'
       />
-      <input onChange={changeDate} type='date' />
+
     </div>
   )
 }

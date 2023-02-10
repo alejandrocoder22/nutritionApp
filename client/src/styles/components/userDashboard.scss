@@ -34,3 +34,14 @@
   justify-content: center;
   gap: 1rem;
 }
+
+.react-datepicker__input-container {
+  text-align: center;
+}
+.react-datepicker__input-container > input {
+  text-align: center;
+  font-size: 1.25rem;
+  background-color: rgb(207, 199, 196);
+  padding: 1rem;
+  cursor: pointer;
+}
