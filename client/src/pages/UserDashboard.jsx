@@ -9,7 +9,12 @@ const UserDashboard = () => {
   const [foodDairy, setFoodDairy] = useState([])
 
   const getFoodDairyByDate = () => {
-    return fetch(`http://localhost:3001/api/food/dairy/1/${date}`)
+    return fetch(`http://localhost:3001/api/food/dairy/1/${date}`, {
+      method: 'GET',
+      headers: {
+        token: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
   }
 
   useEffect(() => {

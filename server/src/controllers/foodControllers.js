@@ -37,13 +37,17 @@ const createFoodDairy = async (req, res) => {
 
 const getDairyFoodByDate = async (req, res) => {
   const { userId, date } = req.params
+
   try {
     const allFood = await foodServices.getDairyFoodByDate(date, userId)
 
     if (allFood.code) {
       return res.status(400).send({ status: 'fail', message: errorMessage(allFood.message) })
     }
-    res.status(200).send({ status: 'sucess', data: allFood.rows })
+
+    if (req.user.id === Number(userId)) {
+      res.status(200).send({ status: 'sucess', data: allFood.rows })
+    }
   } catch (error) {
     res.status(400).send({ status: 'fail', message: error.message })
   }

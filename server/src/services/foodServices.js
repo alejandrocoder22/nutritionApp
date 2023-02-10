@@ -28,7 +28,7 @@ const getDairyFoodByDate = async (date, userId) => {
     SELECT DISTINCT food.food_id, food_name, eat_time, proteins, carbs, fats, grams, is_verified, kcal FROM users_food_dairy 
     INNER JOIN food
     ON users_food_dairy.food_id = food.food_id  
-    WHERE date_added = '${date}' 
+    WHERE date_added = '${parseDate(date)}' 
     AND user_id = $1
 
 
