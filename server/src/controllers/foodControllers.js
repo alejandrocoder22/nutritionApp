@@ -56,7 +56,7 @@ const deleteFoodDiary = (req, res) => {
   console.log(req.user.id)
   try {
     foodServices.deleteFoodDairy(req.user.id, foodId)
-    res.status(200).send({ status: 'sucess', message: 'Food deleted' })
+    res.status(200).send({ status: 'sucess', message: 'Food of dairy deleted' })
   } catch (error) {
     res.status(400).send({ status: 'fail', error })
   }
