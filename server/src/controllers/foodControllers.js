@@ -61,6 +61,11 @@ const deleteFoodDiary = (req, res) => {
     res.status(400).send({ status: 'fail', error })
   }
 }
+
+// const updateFoodDairy = (req, res) => {
+
+// }
+
 module.exports = {
   createPublicFood,
   getDairyFoodByDate,
