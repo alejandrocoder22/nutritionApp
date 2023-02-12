@@ -40,7 +40,6 @@ const getDairyFoodByDate = async (date, userId) => {
 }
 
 const deleteFoodDairy = async (userId, foodId) => {
-  console.log(userId, foodId)
   try {
     return await pool.query(`
       DELETE FROM users_food_dairy
@@ -52,4 +51,8 @@ const deleteFoodDairy = async (userId, foodId) => {
   }
 }
 
-module.exports = { getDairyFoodByDate, createPublicFood, createFoodDairy, getAllFood, deleteFoodDairy }
+const updateFoodDairy = async (newFoodInfo) => {
+  return await pool.query('UPDATE users_food_dairy WHERE dairy_id = $1 SET ')
+}
+
+module.exports = { getDairyFoodByDate, createPublicFood, createFoodDairy, getAllFood, deleteFoodDairy, updateFoodDairy }

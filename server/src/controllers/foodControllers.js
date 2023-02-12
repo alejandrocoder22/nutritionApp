@@ -62,14 +62,22 @@ const deleteFoodDiary = (req, res) => {
   }
 }
 
-// const updateFoodDairy = (req, res) => {
+const updateFoodDairy = (req, res) => {
+  const newFoodData = req.body
 
-// }
+  try {
+    foodServices.updateFoodDairy(newFoodData)
+    res.status(200).send({ status: 'sucess', message: 'Food Updated' })
+  } catch (error) {
+    res.status(400).send({ status: 'fail' })
+  }
+}
 
 module.exports = {
   createPublicFood,
   getDairyFoodByDate,
   getAllFood,
   createFoodDairy,
-  deleteFoodDiary
+  deleteFoodDiary,
+  updateFoodDairy
 }
