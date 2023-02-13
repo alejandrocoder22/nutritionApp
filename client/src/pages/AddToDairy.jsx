@@ -3,12 +3,9 @@ import { useEffect, useState } from 'react'
 import { fetchAllFood } from '../services/foodServices'
 import PieChartDiary from '../components/PieChartDiary'
 import AddToDaityPopup from '../components/AddToDaityPopup'
+import { pickFood } from '../utils/general'
 
 const AddToDairy = () => {
-  const pickFood = (e) => {
-    setPopup(true)
-    setFoodToAdd(food.find(singleFood => singleFood.food_id == e.target.id))
-  }
   const [food, setFood] = useState([])
   const [pickedFood, setPickedFood] = useState({})
   const [foodToAdd, setFoodToAdd] = useState({})
@@ -36,9 +33,8 @@ const AddToDairy = () => {
             <ul className='add-to-dairy__ul'>
               {
                 searchFood.length > 0
-                  ? searchFood?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={pickFood} key={singleFood.food_id}>{singleFood.food_name}</li>)
-                  : food?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={pickFood} key={singleFood.food_id}>{singleFood.food_name}</li>)
-
+                  ? searchFood?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
+                  : food?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
             }
 
             </ul>
