@@ -6,7 +6,6 @@ const AddToDaityPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => 
 
   const onAddFood = (e) => {
     e.preventDefault()
-
     fetch('http://localhost:3001/api/food/dairy/1', {
       method: 'POST',
       headers: {
