@@ -28,7 +28,7 @@ const UserDashboard = () => {
       <Nav />
       <section className='user-dashboard__section wrapper'>
         <UserDashboardDate setDate={setDate} date={date} />
-        <UserDashboardTable date={date} foodDairy={foodDairy} />
+        <UserDashboardTable date={date} foodDairy={foodDairy} setFoodDairy={setFoodDairy} />
         <UserDashboardGraph foodDairy={foodDairy} />
       </section>
     </main>
