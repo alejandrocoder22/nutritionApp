@@ -45,3 +45,18 @@
   padding: 1rem;
   cursor: pointer;
 }
+
+.testing {
+  animation: fadeRight 1s ease 1 normal forwards;
+}
+
+@keyframes fadeRight {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
