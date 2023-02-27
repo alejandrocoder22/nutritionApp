@@ -53,7 +53,6 @@ const getDairyFoodByDate = async (req, res) => {
 
 const deleteFoodDiary = (req, res) => {
   const { foodId } = req.params
-  console.log(req.user.id)
   try {
     foodServices.deleteFoodDairy(req.user.id, foodId)
     res.status(200).send({ status: 'sucess', message: 'Food of dairy deleted' })
