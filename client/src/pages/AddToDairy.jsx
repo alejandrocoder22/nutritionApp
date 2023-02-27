@@ -1,9 +1,9 @@
-import Nav from '../components/Nav'
 import { useEffect, useState } from 'react'
 import { fetchAllFood } from '../services/foodServices'
-import PieChartDiary from '../components/PieChartDiary'
-import AddToDaityPopup from '../components/AddToDaityPopup'
 import { pickFood } from '../utils/general'
+import Nav from '../components/ui/Nav'
+import AddDairyPopup from '../components/addToDairy/AddDairyPopup'
+import PieChartDiary from '../components/PieChartDiary'
 
 const AddToDairy = () => {
   const [food, setFood] = useState([])
@@ -58,7 +58,7 @@ const AddToDairy = () => {
           </div>
         </div>
       </div>
-      {popup && <AddToDaityPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />}
+      {popup && <AddDairyPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />}
     </main>
   )
 }

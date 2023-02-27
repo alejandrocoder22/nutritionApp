@@ -1,6 +1,6 @@
 
 import { PieChart, Pie } from 'recharts'
-import { sumAllMacroData } from '../utils/sumAllMacroData'
+import { sumAllMacroData } from '../../utils/sumAllMacroData'
 
 const PieChartDashboard = ({ foodDairy }) => {
   const data = [

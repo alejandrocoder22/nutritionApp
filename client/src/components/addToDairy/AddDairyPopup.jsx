@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
-const AddToDaityPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
+const AddDairyPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
   const [getParams] = useSearchParams()
   const [quantity, setQuantity] = useState(false)
 
@@ -25,4 +25,4 @@ const AddToDaityPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => 
   )
 }
 
-export default AddToDaityPopup
+export default AddDairyPopup

@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import AddToDairy from '../pages/AddToDairy'
+
 import Home from '../pages/Home'
 import UserDashBoard from '../pages/UserDashBoard'
 import Login from '../pages/Login'
@@ -7,6 +7,7 @@ import Register from '../pages/Register'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../context/userContext'
 import { verifyUser } from '../services/userServices'
+import AddToDairy from '../pages/AddToDairy'
 
 const MainRoutes = () => {
   const { userState, setUserState } = useContext(UserContext)

@@ -1,6 +1,6 @@
-import Nav from '../components/Nav'
-import lineSvg from '../images/line-home.svg'
+import lineSvg from '../assets/images/line-home.svg'
 import { Link } from 'react-router-dom'
+import Nav from '../components/ui/Nav'
 const Home = () => {
   return (
     <main className='home'>

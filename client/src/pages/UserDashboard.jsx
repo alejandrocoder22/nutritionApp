@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Nav from '../components/Nav'
-import UserDashboardDate from '../components/UserDashboardDate'
-import UserDashboardGraph from '../components/UserDashboardGraph'
-import UserDashboardTable from '../components/UserDashboardTable'
+import Nav from '../components/ui/Nav'
+import UserDashboardDate from '../components/userDashboard/UserDashboardDate'
+import UserDashboardGraph from '../components/userDashboard/UserDashboardGraph'
+import UserDashboardTable from '../components/userDashboard/UserDashboardTable'
 
 const UserDashboard = () => {
   const [date, setDate] = useState(new Date())

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { UserContext } from '../context/userContext'
-import { logOut } from '../services/logOut'
+import { UserContext } from '../../context/userContext'
+import { logOut } from '../../services/logOut'
 
 const Nav = () => {
   const context = useContext(UserContext)

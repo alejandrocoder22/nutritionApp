@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import Nav from '../components/Nav'
+
 import { onLogin } from '../services/userServices'
 import { useNavigate } from 'react-router-dom'
+import Nav from '../components/ui/Nav'
 
 const Login = () => {
   const [userName, setUserName] = useState('')
