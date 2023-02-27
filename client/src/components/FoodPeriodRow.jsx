@@ -1,5 +1,5 @@
 
-const FoodPeriodRow = ({ food }) => {
+const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
   const addTransitionOnClick = (e) => {
     e.target.parentNode.classList.add('testing')
   }
@@ -18,7 +18,7 @@ const FoodPeriodRow = ({ food }) => {
   }
 
   const removeFoodInFrontend = (foodId) => {
-    return setFoodDairy(foodDairy.filter(food => food.id === foodId))
+    return setFoodDairy(foodDairy.filter(singleFood => singleFood.dairy_id !== foodId))
   }
 
   return (

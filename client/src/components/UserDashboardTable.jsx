@@ -13,7 +13,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'breakfast') {
-                return <FoodPeriodRow key={food.dairy_id} food={food} />
+                return <FoodPeriodRow key={food.dairy_id} food={food} foodDairy={foodDairy} setFoodDairy={setFoodDairy} />
               }
             }
             )
@@ -28,7 +28,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'launch') {
-                return <FoodPeriodRow key={food.dairy_id} food={food} />
+                return <FoodPeriodRow key={food.dairy_id} food={food} foodDairy={foodDairy} setFoodDairy={setFoodDairy} />
               }
             }
             )
@@ -43,7 +43,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'dinner') {
-                return <FoodPeriodRow key={food.dairy_id} food={food} />
+                return <FoodPeriodRow key={food.dairy_id} food={food} setFoodDairy={setFoodDairy} foodDairy={foodDairy} />
               }
             }
             )
@@ -58,7 +58,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'other') {
-                return <FoodPeriodRow key={food.dairy_id} food={food} />
+                return <FoodPeriodRow key={food.dairy_id} food={food} setFoodDairy={setFoodDairy} foodDairy={foodDairy} />
               }
             }
             )
