@@ -3,27 +3,6 @@ import FoodPeriodRow from './FoodPeriodRow'
 import UserDashboardTableHeader from './UserDashboardTableHeader'
 
 const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
-  const addTransitionOnClick = (e) => {
-    e.target.parentNode.classList.add('testing')
-  }
-
-  const deleteFoodDairy = (e, foodId) => {
-    return fetch(`http://localhost:3001/api/food/dairy/${foodId}`, {
-      method: 'DELETE',
-      headers: {
-        token: `Bearer ${localStorage.getItem('token')}`
-      }
-    }).then((response) => {
-      if (response.status === 200) {
-        addTransitionOnClick(e)
-      }
-    })
-  }
-
-  const removeFoodInFrontend = (foodId) => {
-    return setFoodDairy(foodDairy.filter(food => food.id === foodId))
-  }
-
   return (
     <table className='table'>
       <UserDashboardTableHeader />
