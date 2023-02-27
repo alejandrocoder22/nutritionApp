@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import FoodPeriodRow from './FoodPeriodRow'
 
 const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
   const addTransitionOnClick = (e) => {
@@ -42,17 +43,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'breakfast') {
-                return (
-                  <tr className='table__tr' key={food.dairy_id} onAnimationEnd={() => removeFoodInFrontend(food.dairy_id)}>
-                    <td className='table__td left'>{food.food_name}</td>
-                    <td className='table__td'>{food.grams}</td>
-                    <td className='table__td'>{Number(food.kcal) * Number(food.grams / 100)}</td>
-                    <td className='table__td'>{food.carbs}</td>
-                    <td className='table__td'>{food.fats}</td>
-                    <td className='table__td'>{food.proteins}</td>
-                    <td className='table__td' onClick={(e) => deleteFoodDairy(e, food.dairy_id)}>x</td>
-                  </tr>
-                )
+                return <FoodPeriodRow key={food.dairy_id} food={food} />
               }
             }
             )
@@ -67,17 +58,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'launch') {
-                return (
-                  <tr className='table__tr' key={food.dairy_id}>
-                    <td className='table__td left'>{food.food_name}</td>
-                    <td className='table__td'>{food.grams}</td>
-                    <td className='table__td'>kcal</td>
-                    <td className='table__td'>{food.carbs}</td>
-                    <td className='table__td'>{food.fats}</td>
-                    <td className='table__td'>{food.proteins}</td>
-                    <td className='table__td'>x</td>
-                  </tr>
-                )
+                return <FoodPeriodRow key={food.dairy_id} food={food} />
               }
             }
             )
@@ -92,17 +73,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'dinner') {
-                return (
-                  <tr className='table__tr' key={food.dairy_id}>
-                    <td className='table__td left'>{food.food_name}</td>
-                    <td className='table__td'>{food.grams}</td>
-                    <td className='table__td'>kcal</td>
-                    <td className='table__td'>{food.carbs}</td>
-                    <td className='table__td'>{food.fats}</td>
-                    <td className='table__td'>{food.proteins}</td>
-                    <td className='table__td'>x</td>
-                  </tr>
-                )
+                return <FoodPeriodRow key={food.dairy_id} food={food} />
               }
             }
             )
@@ -117,17 +88,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
         {
             foodDairy?.map(food => {
               if (food.eat_time === 'other') {
-                return (
-                  <tr className='table__tr left' key={food.dairy_id}>
-                    <td className='table__td left'>{food.food_name}</td>
-                    <td className='table__td'>{food.grams}</td>
-                    <td className='table__td'>kcal</td>
-                    <td className='table__td'>{food.carbs}</td>
-                    <td className='table__td'>{food.fats}</td>
-                    <td className='table__td'>{food.proteins}</td>
-                    <td className='table__td'>x</td>
-                  </tr>
-                )
+                return <FoodPeriodRow key={food.dairy_id} food={food} />
               }
             }
             )
