@@ -6,7 +6,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
 const RADIAN = Math.PI / 180
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.50
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
   const y = cy + radius * Math.sin(-midAngle * RADIAN)
 
@@ -24,7 +24,7 @@ const PieChartDashboard = ({ foodDairy }) => {
   ]
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={300} height={250}>
       <Pie
         data={data}
         cx='50%'
