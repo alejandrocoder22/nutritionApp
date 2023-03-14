@@ -2,6 +2,17 @@
   inset: 1rem 26% !important;
 }
 
+.react-datepicker__input-container {
+  text-align: center;
+}
+.react-datepicker__input-container > input {
+  text-align: center;
+  font-size: 1.25rem;
+  box-shadow: 1px 1px 20px 2px rgb(247, 247, 247);
+  padding: 1rem;
+  cursor: pointer;
+}
+
 .react-datepicker__triangle::after,
 .react-datepicker__triangle::before {
   left: -14px !important;
