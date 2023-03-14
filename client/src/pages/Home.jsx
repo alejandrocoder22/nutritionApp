@@ -1,7 +1,7 @@
 import lineSvg from '../assets/images/line-home.svg'
 import { Link } from 'react-router-dom'
 import Nav from '../components/ui/Nav'
-const Home = () => {
+export const Home = () => {
   return (
     <main className='home'>
       <Nav />
@@ -15,5 +15,3 @@ const Home = () => {
     </main>
   )
 }
-
-export default Home

@@ -1,6 +1,6 @@
 import Nav from '../components/ui/Nav'
 
-const Register = () => {
+export const Register = () => {
   return (
     <main className='auth'>
       <Nav />
@@ -14,5 +14,3 @@ const Register = () => {
     </main>
   )
 }
-
-export default Register

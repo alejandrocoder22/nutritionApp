@@ -4,7 +4,7 @@ import UserDashboardDate from '../components/userDashboard/UserDashboardDate'
 import UserDashboardGraph from '../components/userDashboard/UserDashboardGraph'
 import UserDashboardTable from '../components/userDashboard/UserDashboardTable'
 
-const UserDashboard = () => {
+export const UserDashboard = () => {
   const [date, setDate] = useState(new Date())
   const [foodDairy, setFoodDairy] = useState([])
 
@@ -34,5 +34,3 @@ const UserDashboard = () => {
     </main>
   )
 }
-
-export default UserDashboard

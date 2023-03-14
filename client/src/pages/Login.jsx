@@ -4,7 +4,7 @@ import { onLogin } from '../services/userServices'
 import { useNavigate } from 'react-router-dom'
 import Nav from '../components/ui/Nav'
 
-const Login = () => {
+export const Login = () => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -21,5 +21,3 @@ const Login = () => {
     </main>
   )
 }
-
-export default Login
