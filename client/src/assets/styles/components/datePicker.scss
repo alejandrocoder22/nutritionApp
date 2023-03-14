@@ -1,3 +1,8 @@
 .react-datepicker-popper {
   inset: 1rem 26% !important;
 }
+
+.react-datepicker__triangle::after,
+.react-datepicker__triangle::before {
+  left: -14px !important;
+}
