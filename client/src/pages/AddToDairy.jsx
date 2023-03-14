@@ -33,8 +33,8 @@ const AddToDairy = () => {
             <ul className='add-to-dairy__ul'>
               {
                 searchFood.length > 0
-                  ? searchFood?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
-                  : food?.map(singleFood => <li className='add-to-dairy__li pointer' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
+                  ? searchFood?.map(singleFood => <li className='add-to-dairy__li pointer capitalize' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
+                  : food?.map(singleFood => <li className='add-to-dairy__li pointer capitalize' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
             }
 
             </ul>
