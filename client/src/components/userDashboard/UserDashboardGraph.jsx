@@ -4,7 +4,7 @@ const UserDashboardGraph = ({ foodDairy }) => {
   return (
     <div className='graph'>
 
-      <PieChartDashboard foodDairy={foodDairy} />
+      {foodDairy.length > 0 && <PieChartDashboard foodDairy={foodDairy} />}
 
     </div>
   )
