@@ -25,9 +25,9 @@ export const verifyUser = (setUserState) => {
     .then(response => response.json())
     .then(userData => {
       if (userData.status === 'sucess') {
-        setUserState({ isLogged: true })
+        setUserState({ isLogged: true, userName: userData.data.username })
       } else {
-        setUserState({ isLogged: false })
+        setUserState({ isLogged: false, userName: null })
       }
     })
 }
