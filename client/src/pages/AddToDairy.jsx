@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { fetchAllFood } from '../services/foodServices'
 import { pickFood } from '../utils/general'
 import Nav from '../components/ui/Nav'
-import AddDairyPopup from '../components/addToDairy/AddDairyPopup'
 import PieChartDiary from '../components/PieChartDiary'
+const AddDairyPopup = lazy(() => import('../components/addToDairy/AddDairyPopup'))
 
-const AddToDairy = () => {
+export const AddToDairy = () => {
   const [food, setFood] = useState([])
   const [pickedFood, setPickedFood] = useState({})
   const [foodToAdd, setFoodToAdd] = useState({})
@@ -57,9 +57,10 @@ const AddToDairy = () => {
           </div>
         </div>
       </div>
-      {popup && <AddDairyPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />}
+      {popup &&
+        <Suspense>
+          <AddDairyPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />
+        </Suspense>}
     </main>
   )
 }
-
-export default AddToDairy
