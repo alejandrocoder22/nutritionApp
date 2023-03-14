@@ -6,7 +6,6 @@ import { logOut } from '../../services/logOut'
 const Nav = () => {
   const context = useContext(UserContext)
   const navigate = useNavigate()
-
   return (
     <header className='header wrapper '>
       <Link to='/'>
@@ -24,7 +23,7 @@ const Nav = () => {
                 </Link>
 
                 <li className='nav__li nav__logout' onClick={() => logOut(navigate, context.setUserState)}>Logout</li>
-                <li className='nav__li nav__current-user'> {context.userState.userName}</li>
+                <li className='nav__li nav__current-user capitalize'> {context.userState.userName}</li>
               </ul>
 
               )
