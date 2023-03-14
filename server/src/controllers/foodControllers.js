@@ -28,11 +28,15 @@ const createFoodDairy = async (req, res) => {
   const food = req.body
   const { userId } = req.params
 
-  const response = await foodServices.createFoodDairy(food, userId)
-  if (response?.code) {
-    return res.status(400).send({ status: 'error', message: errorMessage(response.code) })
+  if (food.quantity) {
+    const response = await foodServices.createFoodDairy(food, userId)
+    if (response?.code) {
+      return res.status(400).send({ status: 'error', message: errorMessage(response.code) })
+    }
+    res.status(200).send({ status: 'sucess', message: 'Food created' })
+  } else {
+    res.status(400).send({ message: 'Must send a valid number' })
   }
-  res.status(200).send({ status: 'sucess', message: 'Food created' })
 }
 
 const getDairyFoodByDate = async (req, res) => {
