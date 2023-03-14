@@ -36,7 +36,6 @@ const AddToDairy = () => {
                   ? searchFood?.map(singleFood => <li className='add-to-dairy__li pointer capitalize' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
                   : food?.map(singleFood => <li className='add-to-dairy__li pointer capitalize' id={singleFood.food_id} onClick={(e) => pickFood(e, setPopup, setFoodToAdd, food)} key={singleFood.food_id}>{singleFood.food_name}</li>)
             }
-
             </ul>
           </div>
           <div className='add-to-dairy__column-right'>

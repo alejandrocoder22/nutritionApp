@@ -23,3 +23,15 @@
     text-align: center;
   }
 }
+
+@media (max-width: 81.25rem) {
+  .intro-text__h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 43.75rem) {
+  .intro-text__h1 {
+    font-size: 2rem;
+  }
+}

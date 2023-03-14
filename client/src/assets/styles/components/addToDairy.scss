@@ -92,3 +92,11 @@
 .recharts-wrapper {
   margin: 0 auto;
 }
+
+@media (max-width: 81.25rem) {
+  .add-to-dairy {
+    &__two-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+}
