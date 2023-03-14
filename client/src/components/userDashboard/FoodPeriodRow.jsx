@@ -1,10 +1,11 @@
-
+import { MdDeleteOutline } from 'react-icons/md'
 const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
   const addTransitionOnClick = (e) => {
-    e.target.parentNode.classList.add('testing')
+    e.target.parentNode.classList.add('remove-animation')
   }
 
   const deleteFoodDairy = (e, foodId) => {
+    console.log(e.target.parentNode)
     return fetch(`http://localhost:3001/api/food/dairy/${foodId}`, {
       method: 'DELETE',
       headers: {
@@ -29,7 +30,8 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
       <td className='table__td'>{food.carbs}</td>
       <td className='table__td'>{food.fats}</td>
       <td className='table__td'>{food.proteins}</td>
-      <td className='table__td' onClick={(e) => deleteFoodDairy(e, food.dairy_id)}>x</td>
+
+      <MdDeleteOutline className='table__delete-icon' onClick={(e) => deleteFoodDairy(e, food.dairy_id)} />
     </tr>
   )
 }
