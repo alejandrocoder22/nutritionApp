@@ -37,9 +37,9 @@ const AddDairyPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
 
   return (
     <form onSubmit={(e) => onAddFood(e)} className='add-to-dairy__popup' ref={wrapperRef}>
-      <label>Quantity</label>
-      <input onChange={(e) => setQuantity(e.target.value)} type='text' />
-      <button>Add To Dairy</button>
+      <label>Grams of {foodToAdd?.food_name}</label>
+      <input className='add-to-dairy__popup-input' onChange={(e) => setQuantity(e.target.value)} type='text' />
+      <button className='add-to-dairy__popup-button'>Add To Dairy</button>
     </form>
   )
 }
