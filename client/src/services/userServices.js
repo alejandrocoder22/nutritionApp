@@ -10,9 +10,9 @@ export const onLogin = (e, username, password, navigate) => {
     .then(userData => {
       if (userData.status === 'sucess') {
         window.localStorage.setItem('token', userData.token)
-        navigate('/dashboard')
       }
     })
+    .finally(() => navigate('/dashboard'))
 }
 
 export const verifyUser = (setUserState) => {
