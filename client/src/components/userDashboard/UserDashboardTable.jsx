@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import AddToDairyButton from './AddToDairyButton'
 import FoodPeriodRow from './FoodPeriodRow'
 import UserDashboardTableHeader from './UserDashboardTableHeader'
 
@@ -20,7 +21,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
           }
 
         <tr className='table__section-start'>
-          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=breakfast`}>Añadir...</Link></td>
+          <AddToDairyButton period='breakfast' date={date} />
         </tr>
         <tr className='table__tr'>
           <td className='table__td table__period left'>Comida</td>
@@ -34,7 +35,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
             )
           }
         <tr className='table__section-start'>
-          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=launch`}>Añadir...</Link></td>
+          <AddToDairyButton period='launch' date={date} />
         </tr>
         <tr className='table__separate-bar' />
         <tr className='table__tr'>
@@ -49,7 +50,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
             )
           }
         <tr className='table__section-start'>
-          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=dinner`}>Añadir...</Link></td>
+          <AddToDairyButton period='dinner' date={date} />
         </tr>
         <tr className='table__separate-bar' />
         <tr className='table__tr'>
@@ -64,7 +65,7 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
             )
           }
         <tr className=' table__section-start'>
-          <td className='table__section-add'><Link to={`/add-dairy?date=${date}&period=other`}>Añadir...</Link></td>
+          <AddToDairyButton period='other' date={date} />
         </tr>
         <tr className='table__separate-bar' />
       </tbody>
