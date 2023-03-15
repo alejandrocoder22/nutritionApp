@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const usersServices = require('../services/usersServices')
 const jwt = require('jsonwebtoken')
+const { hashPassword, comparePasswords } = require('../utils/crypto')
 
 const getAllUsers = async (req, res) => {
   try {
@@ -11,23 +12,18 @@ const getAllUsers = async (req, res) => {
   }
 }
 
-const createUser = (req, res) => {
+const createUser = async (req, res) => {
   const { username, password } = req.body
-  const saltRounds = 10
+
   try {
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      if (err) {
-        return res.status(400).send({ status: 'Error', msg: err.message })
-      }
-      usersServices.createUser(username, hash).then(response => {
-        if (response?.code === '23505') {
-          return res.status(400).send({ status: 'Error', msg: 'Username already exist' })
-        }
-        res.send({ status: 'sucess', message: 'User Created' })
-      })
-    })
+    const hashedPassword = await hashPassword(password)
+    const newUserResponse = await usersServices.createUser(username, hashedPassword)
+    if (newUserResponse?.code) {
+      return res.status(400).send({ status: 'Error', message: newUserResponse.code })
+    }
+    res.send({ status: 'sucess', message: 'User Created' })
   } catch (error) {
-    res.status(400).send({ status: 'Error', msg: 'Something went wrong' })
+    res.status(400).send({ message: error.message })
   }
 }
 
@@ -36,25 +32,21 @@ const loginUser = async (req, res) => {
 
   try {
     const userExist = await usersServices.loginUser(username, password)
-    if (userExist.rows.length === 0) {
-      return res.status(400).send({ status: 'Error', message: 'User or Password is invalid' })
-    }
-    bcrypt.compare(password, userExist.rows[0].password, (err, result) => {
-      if (err) {
-        return res.status(400).send({ status: 'Error', message: 'User or Password is invalid' })
-      }
 
-      if (!result) {
-        return res.status(400).send({ status: 'Error', message: 'User or Password is invalid' })
-      }
+    if (userExist.rows.length === 0) return res.status(400).send({ message: 'Username or Password is invalid' })
 
-      if (result) {
-        const token = jwt.sign({ id: userExist.rows[0].user_id, username: userExist.rows[0].username }, process.env.JWT_PASSWORD)
-        return res.status(200).send({ status: 'sucess', token, userName: userExist.rows[0].username, message: 'Logged in' })
-      }
-    })
+    const passwordDatabase = userExist.rows[0].password
+    const usernameDatabase = userExist.rows[0].username
+    const idDatabase = userExist.rows[0].user_id
+
+    const compareResult = await comparePasswords(password, passwordDatabase)
+
+    if (!compareResult) return res.status(400).send({ status: 'Error', message: 'User or Password is invalid' })
+
+    const token = jwt.sign({ id: idDatabase, username: usernameDatabase }, process.env.JWT_PASSWORD)
+    return res.status(200).send({ status: 'sucess', token, userName: usernameDatabase, message: 'Logged in' })
   } catch (error) {
-    res.status(400).send({ status: 'Error', message: error.message })
+    return res.status(400).send({ message: error.message })
   }
 }
 const deleteUser = (req, res) => {

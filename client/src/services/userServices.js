@@ -1,18 +1,19 @@
-export const onLogin = (e, username, password, navigate) => {
+export const onLogin = async (e, username, password, navigate) => {
   e.preventDefault()
-  fetch('http://localhost:3001/api/users/login', {
+
+  const response = await fetch('http://localhost:3001/api/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ username, password })
-  }).then(response => response.json())
-    .then(userData => {
-      if (userData.status === 'sucess') {
-        window.localStorage.setItem('token', userData.token)
-      }
-    })
-    .finally(() => navigate('/dashboard'))
+  })
+
+  if (response.status === 200) {
+    const userData = await response.json()
+    window.localStorage.setItem('token', userData.token)
+    navigate('/dashboard')
+  }
 }
 
 export const verifyUser = (setUserState) => {
