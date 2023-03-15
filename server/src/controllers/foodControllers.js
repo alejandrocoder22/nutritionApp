@@ -47,7 +47,6 @@ const getDairyFoodByDate = async (req, res) => {
     if (allFood.code) {
       return res.status(400).send({ status: 'fail', message: errorMessage(allFood.message) })
     }
-
     res.status(200).send({ status: 'sucess', data: allFood.rows })
   } catch (error) {
     res.status(400).send({ status: 'fail', message: error.message })
