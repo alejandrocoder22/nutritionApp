@@ -46,14 +46,18 @@ export const AddToDairy = () => {
           <div className='add-to-dairy__column-right'>
             <table className='add-to-dairy__table'>
               <thead className='add-to-dairy__thead'>
-                <th className='add-to-dairy__th'>Proteínas</th>
-                <th className='add-to-dairy__th'>Grasas</th>
-                <th className='add-to-dairy__th'>Hidratos</th>
+                <tr>
+                  <th className='add-to-dairy__th'>Proteínas</th>
+                  <th className='add-to-dairy__th'>Grasas</th>
+                  <th className='add-to-dairy__th'>Hidratos</th>
+                </tr>
               </thead>
               <tbody>
-                <td className='add-to-dairy__td'>{foodToAdd?.proteins}</td>
-                <td className='add-to-dairy__td'>{foodToAdd?.fats}</td>
-                <td className='add-to-dairy__td'>{foodToAdd?.carbs}</td>
+                <tr>
+                  <td className='add-to-dairy__td'>{foodToAdd?.proteins}</td>
+                  <td className='add-to-dairy__td'>{foodToAdd?.fats}</td>
+                  <td className='add-to-dairy__td'>{foodToAdd?.carbs}</td>
+                </tr>
               </tbody>
             </table>
             <div className='add-to-dairy__graph-container'>
