@@ -1,6 +1,6 @@
 export const sumAllMacroData = (data, macro) => {
   const arrayOfMacroData = []
-  data?.map(singleFood => arrayOfMacroData.push(Number(singleFood.grams) / 100 * Number(singleFood[macro])))
+  data?.map(singleFood => arrayOfMacroData.push(Math.round(Number(singleFood.grams) / 100 * Number(singleFood[macro]))))
 
   let currentValue = 0
 
