@@ -34,6 +34,9 @@
     right: 8px;
     pointer-events: none;
   }
+  &__add-link {
+    text-decoration: none;
+  }
 }
 .graph {
   display: flex;
