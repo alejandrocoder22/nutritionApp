@@ -5,7 +5,6 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
   }
 
   const deleteFoodDairy = (e, foodId) => {
-    console.log(e.target.parentNode)
     return fetch(`http://localhost:3001/api/food/dairy/${foodId}`, {
       method: 'DELETE',
       headers: {
@@ -30,7 +29,8 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
       <td className='table__td'>{food.carbs * food.grams / 100}</td>
       <td className='table__td'>{food.fats * food.grams / 100}</td>
       <td className='table__td'>{food.proteins * food.grams / 100}</td>
-      <MdDeleteOutline className='table__delete-icon' onClick={(e) => deleteFoodDairy(e, food.dairy_id)} />
+      <td className='table__td table__td-delete' onClick={(e) => deleteFoodDairy(e, food.dairy_id)}> <MdDeleteOutline className='table__delete-icon' /></td>
+
     </tr>
   )
 }
