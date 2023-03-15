@@ -39,7 +39,7 @@ const AddDairyPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
     <form onSubmit={(e) => onAddFood(e)} className='add-to-dairy__popup' ref={wrapperRef}>
       <label>Grams of {foodToAdd?.food_name}</label>
       <input className='add-to-dairy__popup-input' onChange={(e) => setQuantity(e.target.value)} type='text' />
-      <button className='add-to-dairy__popup-button'>Add To Dairy</button>
+      <button className='add-to-dairy__popup-button'>Add To {getParams.get('period')}</button>
     </form>
   )
 }
