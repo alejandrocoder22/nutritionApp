@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import AddToDairyButton from './AddToDairyButton'
 import FoodPeriodRow from './FoodPeriodRow'
 import UserDashboardTableHeader from './UserDashboardTableHeader'
