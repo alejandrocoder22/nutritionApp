@@ -36,7 +36,6 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
       <td className='table__td'>{calculateMacrosOnGrams(fats, grams)}</td>
       <td className='table__td'>{calculateMacrosOnGrams(proteins, grams)}</td>
       <td className='table__td table__td-delete' onClick={(e) => deleteFoodDairy(e, food.dairy_id)}> <MdDeleteOutline className='table__delete-icon' /></td>
-
     </tr>
   )
 }

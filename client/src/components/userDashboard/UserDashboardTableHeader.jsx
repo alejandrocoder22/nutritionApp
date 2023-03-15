@@ -3,14 +3,14 @@ import React from 'react'
 const UserDashboardTableHeader = () => {
   return (
     <thead className='table__thead'>
-      <tr className='table__th'>
-        <td className='table__td left' />
-        <td className='table__td'>Cantidad</td>
-        <td className='table__td'>Kcal</td>
-        <td className='table__td'>Carbohidratos (g)</td>
-        <td className='table__td'>Grasas (g)</td>
-        <td className='table__td'>Proteínas (g)</td>
-        <td className='table__td' />
+      <tr className='table__tr'>
+        <th className='table__th left' />
+        <th className='table__th'>Cantidad</th>
+        <th className='table__th'>Kcal</th>
+        <th className='table__th'>Carbohidratos (g)</th>
+        <th className='table__th'>Grasas (g)</th>
+        <th className='table__th'>Proteínas (g)</th>
+        <th className='table__th' />
       </tr>
     </thead>
   )
