@@ -21,14 +21,20 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
     return setFoodDairy(foodDairy.filter(singleFood => singleFood.dairy_id !== foodId))
   }
 
+  const calculateMacrosOnGrams = (macro, grams) => {
+    return Math.round(macro * (grams / 100))
+  }
+
+  const { kcal, grams, carbs, fats, proteins } = food
+
   return (
     <tr className='table__tr' onAnimationEnd={() => removeFoodInFrontend(food.dairy_id)}>
       <td className='table__td left capitalize'>{food.food_name}</td>
       <td className='table__td'>{food.grams}</td>
-      <td className='table__td'>{Number(food.kcal) * Number(food.grams / 100)}</td>
-      <td className='table__td'>{food.carbs * food.grams / 100}</td>
-      <td className='table__td'>{food.fats * food.grams / 100}</td>
-      <td className='table__td'>{food.proteins * food.grams / 100}</td>
+      <td className='table__td'>{calculateMacrosOnGrams(kcal, grams)}</td>
+      <td className='table__td'>{calculateMacrosOnGrams(carbs, grams)}</td>
+      <td className='table__td'>{calculateMacrosOnGrams(fats, grams)}</td>
+      <td className='table__td'>{calculateMacrosOnGrams(proteins, grams)}</td>
       <td className='table__td table__td-delete' onClick={(e) => deleteFoodDairy(e, food.dairy_id)}> <MdDeleteOutline className='table__delete-icon' /></td>
 
     </tr>
