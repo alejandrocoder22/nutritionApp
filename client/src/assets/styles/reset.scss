@@ -3,6 +3,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border: none;
 }
 
 /* Remove default margin */
@@ -40,11 +41,13 @@ body {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  text-decoration: none;
 }
 
 /* Make images easier to work with */
 img,
-picture {
+picture,
+svg {
   max-width: 100%;
   display: block;
 }
