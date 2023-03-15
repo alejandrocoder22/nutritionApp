@@ -25,9 +25,10 @@ const AddDairyPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
 
   const onAddFood = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/api/food/dairy/1', {
+    fetch('http://localhost:3001/api/food/dairy/food', {
       method: 'POST',
       headers: {
+        token: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ...foodToAdd, quantity, eat_at: getParams.get('period'), date_added: getParams.get('date') })
