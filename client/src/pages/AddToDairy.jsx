@@ -3,6 +3,8 @@ import { fetchAllFood } from '../services/foodServices'
 import { pickFood } from '../utils/general'
 import Nav from '../components/ui/Nav'
 import PieChartDiary from '../components/PieChartDiary'
+import { GrReturn } from 'react-icons/gr'
+import { useNavigate } from 'react-router-dom'
 const AddDairyPopup = lazy(() => import('../components/addToDairy/AddDairyPopup'))
 
 export const AddToDairy = () => {
@@ -18,6 +20,7 @@ export const AddToDairy = () => {
       .then(foodList => setFood(foodList.data))
   }, [])
 
+  const navigate = useNavigate()
   const onSearchFood = (e) => {
     setSearchFood(food.filter(singleFood => singleFood.food_name.toLowerCase().includes(e.target.value.toLowerCase())))
   }
@@ -25,6 +28,8 @@ export const AddToDairy = () => {
     <main className='add-to-dairy'>
       <Nav />
       <div className='add-to-dairy__container wrapper'>
+
+        <button className='add-to-dairy__back-button' onClick={() => navigate('/dashboard')}><GrReturn className='add-to-dairy__back-icon' /></button>
         <form className='add-to-dairy__form'>
           <input onChange={onSearchFood} className='add-to-dairy__input radius ' placeholder='Buscar...' />
         </form>
