@@ -30,8 +30,6 @@ const getDairyFoodByDate = async (date, userId) => {
     ON users_food_dairy.food_id = food.food_id  
     WHERE date_added = '${parseDate(date)}' 
     AND user_id = $1
-
-
     `, [userId]
     )
   } catch (error) {
