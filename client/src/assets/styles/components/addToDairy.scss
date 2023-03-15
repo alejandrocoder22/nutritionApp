@@ -1,4 +1,16 @@
 .add-to-dairy {
+  &__back-button {
+    background-color: none;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  &__back-icon {
+    background-color: none;
+    font-size: 1.25rem;
+  }
+
   &__form {
     display: flex;
     gap: 1rem;
