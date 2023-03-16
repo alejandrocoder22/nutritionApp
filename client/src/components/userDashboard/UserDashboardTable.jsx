@@ -1,8 +1,8 @@
 import AddToDairyButton from './AddToDairyButton'
 import FoodPeriodRow from './FoodPeriodRow'
-import UserDashboardTableHeader from './UserDashboardTableHeader'
+import { UserDashboardTableHeader } from './UserDashboardTableHeader'
 
-const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
+export const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
   return (
 
     <section className='table__container'>
@@ -74,5 +74,3 @@ const UserDashboardTable = ({ date, foodDairy, setFoodDairy }) => {
     </section>
   )
 }
-
-export default UserDashboardTable

@@ -2,7 +2,7 @@
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const UserDashboardDate = ({ setDate, date }) => {
+export const UserDashboardDate = ({ setDate, date }) => {
   const changeDate = (e) => {
     setDate(e)
   }
@@ -17,5 +17,3 @@ const UserDashboardDate = ({ setDate, date }) => {
     </div>
   )
 }
-
-export default UserDashboardDate

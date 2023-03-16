@@ -1,6 +1,6 @@
 import PieChartDashboard from './PieChartDashboard'
 
-const UserDashboardGraph = ({ foodDairy }) => {
+export const UserDashboardGraph = ({ foodDairy }) => {
   return (
     <div className='graph'>
 
@@ -9,5 +9,3 @@ const UserDashboardGraph = ({ foodDairy }) => {
     </div>
   )
 }
-
-export default UserDashboardGraph
