@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
 
-const AddDairyPopup = ({ pickedFood, foodToAdd, setPickedFood, setPopup }) => {
+const AddDairyPopup = ({ foodToAdd, setPopup }) => {
   const [getParams] = useSearchParams()
   const [quantity, setQuantity] = useState(false)
 
