@@ -3,14 +3,14 @@
 }
 
 .table {
-  &__container {
-    width: 100%;
-    overflow: auto;
-  }
   margin: 2rem auto;
   padding: 1rem 0;
   box-shadow: 1px 1px 20px 2px rgb(247, 247, 247);
-  width: 95%;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+  }
 
   &__section-add {
     padding: 0 1rem;
@@ -23,26 +23,20 @@
     font-weight: bold;
     padding: 0 1rem;
   }
+  &__th {
+    min-width: 2rem;
+  }
   &__td {
-    padding: 0.5rem 1rem;
     text-align: center;
   }
 
   &__td-delete {
-    padding: 0;
     cursor: pointer;
   }
-  &__tr {
-    position: relative;
-  }
-
   &__delete-icon {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     font-size: 1.5rem;
-    position: absolute;
-    top: 8px;
-    right: 8px;
     pointer-events: none;
   }
   &__add-link {
@@ -79,5 +73,13 @@
   to {
     transform: translateX(100%);
     opacity: 0;
+  }
+}
+
+@media (max-width: 43.75rem) {
+  .table {
+    &__container {
+      overflow: auto;
+    }
   }
 }
