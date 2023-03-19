@@ -1,4 +1,4 @@
-export const onLogin = async (e, username, password, navigate) => {
+export const onLogin = async (e, username, password, navigate, context) => {
   e.preventDefault()
 
   const response = await fetch('http://localhost:3001/api/users/login', {
@@ -12,7 +12,10 @@ export const onLogin = async (e, username, password, navigate) => {
   if (response.status === 200) {
     const userData = await response.json()
     window.localStorage.setItem('token', userData.token)
+    context.setUserState({ isLogged: true, userName: userData.userName })
     navigate('/dashboard')
+  } else {
+    context.setUserState({ isLogged: false, userName: null })
   }
 }
 
