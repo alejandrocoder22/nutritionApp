@@ -10,7 +10,7 @@ const Nav = () => {
   return (
     <header className='header wrapper '>
       <Link to='/'>
-        <div className='header__logo'>Logo</div>
+        <div className='header__logo'>Nutrition</div>
       </Link>
       <nav className='header__nav'>
 

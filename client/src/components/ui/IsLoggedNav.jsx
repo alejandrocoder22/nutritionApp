@@ -9,7 +9,7 @@ const IsLoggedNav = ({ context }) => {
         <li className='nav__li'>Dashboard</li>
       </Link>
 
-      <li className='nav__li nav__logout' onClick={() => logOut(navigate, context.setUserState)}>Logout</li>
+      <li className='nav__li nav__logout' onClick={() => logOut(navigate, context.setUserState)}>Desconectarse</li>
       <li className='nav__li nav__current-user capitalize'> {context.userState.userName}</li>
     </ul>
   )
