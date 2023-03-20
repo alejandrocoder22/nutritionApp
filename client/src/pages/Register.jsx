@@ -21,11 +21,11 @@ export const Register = () => {
       <Nav />
       <form className='auth__form wrapper' onSubmit={onRegister}>
         <div className='auth__wrapper'>
-          <label className='auth__label'>Username</label>
+          <label className='auth__label'>Usuario</label>
           <input className='auth__input' onChange={(e) => setUsername(e.target.value)} />
-          <label className='auth__label '>Password</label>
+          <label className='auth__label '>Contraseña</label>
           <input className='auth__input' onChange={(e) => setPasword(e.target.value)} type='password' />
-          <button className='auth__button pointer '>Register</button>
+          <button className='auth__button pointer '>Registrar</button>
         </div>
       </form>
     </main>

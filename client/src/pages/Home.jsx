@@ -6,7 +6,7 @@ export const Home = () => {
     <main className='home'>
       <Nav />
       <div className='home__intro-text wrapper'>
-        <h1 className='intro-text__h1'>Don't <span className='intro-text__red-bg'> lose weight </span><br /> Gain habits</h1>
+        <h1 className='intro-text__h1'>No <span className='intro-text__red-bg'> Pierdas peso </span><br /> Gana hábitos</h1>
         <img className='intro-text__line' src={lineSvg} />
         <Link to='/dashboard'>
           <button className='home__button radius pointer'>Start Here</button>
