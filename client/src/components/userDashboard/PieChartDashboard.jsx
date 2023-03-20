@@ -5,15 +5,15 @@ import { sumAllMacroData } from '../../utils/sumAllMacroData'
 const PieChartDashboard = ({ foodDairy }) => {
   const data = [
     { name: 'Proteinas', value: sumAllMacroData(foodDairy, 'proteins') },
-    { name: 'Fats', value: sumAllMacroData(foodDairy, 'fats') },
-    { name: 'Carbs', value: sumAllMacroData(foodDairy, 'carbs') }
+    { name: 'Grasas', value: sumAllMacroData(foodDairy, 'fats') },
+    { name: 'Carbohidratos', value: sumAllMacroData(foodDairy, 'carbs') }
   ]
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28']
   return (
-    <PieChart width={250} height={350}>
+    <PieChart width={350} height={350}>
       <Pie
         data={data}
-        cx={120}
+        cx={175}
         cy={200}
         innerRadius={50}
         outerRadius={80}
