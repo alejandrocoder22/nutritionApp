@@ -25,7 +25,7 @@ const AddDairyPopup = ({ foodToAdd, setPopup }) => {
 
   const onAddFood = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/api/food/dairy/food', {
+    fetch(`${import.meta.env.VITE_BASE_URL}/api/food/dairy/food`, {
       method: 'POST',
       headers: {
         token: `Bearer ${localStorage.getItem('token')}`,

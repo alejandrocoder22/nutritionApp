@@ -1,3 +1,3 @@
 export const fetchAllFood = () => {
-  return fetch('http://localhost:3001/api/food/')
+  return fetch(`${import.meta.env.VITE_BASE_URL}/api/food/`)
 }

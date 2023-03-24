@@ -7,7 +7,7 @@ export const Register = () => {
 
   const onRegister = (e) => {
     e.preventDefault()
-    return fetch('http://localhost:3001/api/users/register', {
+    return fetch(`${import.meta.env.VITE_BASE_URL}/api/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

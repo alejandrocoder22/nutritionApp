@@ -1,7 +1,7 @@
 export const onLogin = async (e, username, password, navigate, context) => {
   e.preventDefault()
 
-  const response = await fetch('http://localhost:3001/api/users/login', {
+  const response = await fetch('https://nutritionapi.alejandrocoder.com/api/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const onLogin = async (e, username, password, navigate, context) => {
 }
 
 export const verifyUser = (setUserState) => {
-  return fetch('http://localhost:3001/api/users/verify', {
+  return fetch(`${import.meta.env.VITE_BASE_URL}/api/users/verify`, {
     method: 'GET',
     headers: {
       token: `Bearer ${window.localStorage.getItem('token')}`

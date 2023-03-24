@@ -5,7 +5,7 @@ const FoodPeriodRow = ({ food, setFoodDairy, foodDairy }) => {
   }
 
   const deleteFoodDairy = (e, foodId) => {
-    return fetch(`http://localhost:3001/api/food/dairy/${foodId}`, {
+    return fetch(`${import.meta.env.VITE_BASE_URL}/api/food/dairy/${foodId}`, {
       method: 'DELETE',
       headers: {
         token: `Bearer ${localStorage.getItem('token')}`

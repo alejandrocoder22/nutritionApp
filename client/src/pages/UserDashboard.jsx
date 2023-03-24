@@ -7,7 +7,7 @@ export const UserDashboard = () => {
   const [foodDairy, setFoodDairy] = useState([])
 
   const getFoodDairyByDate = () => {
-    return fetch(`http://localhost:3001/api/food/dairy/${date}`, {
+    return fetch(`${import.meta.env.VITE_BASE_URL}/api/food/dairy/${date}`, {
       method: 'GET',
       headers: {
         token: `Bearer ${localStorage.getItem('token')}`
