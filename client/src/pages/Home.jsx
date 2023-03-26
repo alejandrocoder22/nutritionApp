@@ -9,7 +9,7 @@ export const Home = () => {
         <h1 className='intro-text__h1'>No <span className='intro-text__red-bg'> Pierdas peso </span><br /> Gana hábitos</h1>
         <img className='intro-text__line' src={lineSvg} />
         <Link to='/dashboard'>
-          <button className='home__button radius pointer'>Start Here</button>
+          <button className='home__button radius pointer'>Comienza aquí</button>
         </Link>
       </div>
     </main>
