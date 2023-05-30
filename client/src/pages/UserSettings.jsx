@@ -1,6 +1,6 @@
 
 export const UserSettings = () => {
   return (
-    <main className='settings' />
+    <section className='settings' />
   )
 }

@@ -11,8 +11,7 @@ export const Login = () => {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   return (
-    <main className='auth wera'>
-      <Nav />
+    <section className='auth'>
       <form onSubmit={(e) => onLogin(e, userName, password, navigate, context)} className='auth__form wrapper '>
         <div className='auth__wrapper'>
           <label className='auth__label'>Usuario</label>
@@ -23,6 +22,6 @@ export const Login = () => {
           <button className='auth__button pointer'>Ingresar</button>
         </div>
       </form>
-    </main>
+    </section>
   )
 }

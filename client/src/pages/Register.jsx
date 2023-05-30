@@ -17,8 +17,7 @@ export const Register = () => {
   }
 
   return (
-    <main className='auth'>
-      <Nav />
+    <section className='auth'>
       <form className='auth__form wrapper' onSubmit={onRegister}>
         <div className='auth__wrapper'>
           <label className='auth__label'>Usuario</label>
@@ -28,6 +27,6 @@ export const Register = () => {
           <button className='auth__button pointer '>Registrar</button>
         </div>
       </form>
-    </main>
+    </section>
   )
 }

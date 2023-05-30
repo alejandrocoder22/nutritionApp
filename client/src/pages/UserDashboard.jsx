@@ -22,13 +22,12 @@ export const UserDashboard = () => {
   }, [date])
 
   return (
-    <main className='user-dashboard'>
-      <Nav />
+    <section className='user-dashboard'>
       <section className='user-dashboard__section wrapper'>
         <UserDashboardDate setDate={setDate} date={date} />
         <UserDashboardTable date={date} foodDairy={foodDairy} setFoodDairy={setFoodDairy} />
         <UserDashboardGraph foodDairy={foodDairy} />
       </section>
-    </main>
+    </section>
   )
 }

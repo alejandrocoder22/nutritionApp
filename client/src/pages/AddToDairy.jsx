@@ -25,8 +25,7 @@ export const AddToDairy = () => {
     setSearchFood(food.filter(singleFood => singleFood.food_name.toLowerCase().includes(e.target.value.toLowerCase())))
   }
   return (
-    <main className='add-to-dairy'>
-      <Nav />
+    <section className='add-to-dairy'>
       <div className='add-to-dairy__container wrapper'>
 
         <button className='add-to-dairy__back-button' onClick={() => navigate('/dashboard')}><GrReturn className='add-to-dairy__back-icon' /></button>
@@ -70,6 +69,6 @@ export const AddToDairy = () => {
         <Suspense>
           <AddDairyPopup pickedFood={pickedFood} setPickedFood={setPickedFood} setPopup={setPopup} foodToAdd={foodToAdd} />
         </Suspense>}
-    </main>
+    </section>
   )
 }
