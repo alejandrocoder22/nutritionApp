@@ -19,7 +19,7 @@ export const onLogin = async (e, username, password, navigate, context) => {
   }
 }
 
-export const verifyUser = (setUserState) => {
+export const verifyUser = (setUserState, setIsLoading) => {
   return fetch(`${import.meta.env.VITE_BASE_URL}/api/users/verify`, {
     method: 'GET',
     headers: {
@@ -33,5 +33,5 @@ export const verifyUser = (setUserState) => {
       } else {
         setUserState({ isLogged: false, userName: null })
       }
-    })
+    }).finally(() => setIsLoading(false))
 }

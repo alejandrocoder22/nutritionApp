@@ -6,21 +6,26 @@ import { UserContext } from '../context/userContext'
 import { verifyUser } from '../services/userServices'
 
 const MainRoutes = () => {
-  const { userState, setUserState } = useContext(UserContext)
+  const { userState, setUserState, setIsLoading, isLoading } = useContext(UserContext)
 
   useEffect(() => {
-    verifyUser(setUserState)
+    verifyUser(setUserState, setIsLoading)
   }, [])
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={userState.isLogged ? <UserDashboard /> : <Login />} />
-        <Route path='/add-dairy' element={userState.isLogged ? <AddToDairy /> : <Login />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
+      {
+      isLoading
+        ? <h1>Loading...</h1>
+        : <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/dashboard' element={userState.isLogged ? <UserDashboard /> : <Login />} />
+          <Route path='/add-dairy' element={userState.isLogged ? <AddToDairy /> : <Login />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          </Routes>
+    }
+
     </BrowserRouter>
   )
 }
