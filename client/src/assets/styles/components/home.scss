@@ -1,7 +1,7 @@
 .home {
   background: url("../images/fondo.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - 9.5rem);
   &__intro-text {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,6 @@
   }
   &__button {
     padding: 1.5rem 1rem;
-
     font-weight: bold;
     background-color: #fbc26e;
   }

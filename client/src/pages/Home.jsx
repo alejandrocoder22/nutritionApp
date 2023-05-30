@@ -1,6 +1,5 @@
 import lineSvg from '../assets/images/line-home.svg'
 import { Link } from 'react-router-dom'
-import Nav from '../components/ui/Nav'
 export const Home = () => {
   return (
     <section className='home'>
