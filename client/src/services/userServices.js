@@ -1,7 +1,7 @@
 export const onLogin = async (e, username, password, navigate, context) => {
   e.preventDefault()
 
-  const response = await fetch('https://nutritionapi.alejandrocoder.com/api/users/login', {
+  const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
